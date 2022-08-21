@@ -1,15 +1,15 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <MainPage msg="Autocomplete Test App"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MainPage from './pages/MainPage.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MainPage
   }
 }
 </script>
