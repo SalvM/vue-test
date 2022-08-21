@@ -1,17 +1,27 @@
+
+<script>
+import { cities } from "../assets/Mocks";
+import AutocompleteInput from '@/components/AutocompleteInput.vue';
+export default {
+  components: {AutocompleteInput},
+  name: 'MainPage',
+  props: {
+    msg: String
+  },
+  data() {
+    return {
+      list: cities
+    }
+  }
+}
+</script>
+
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
   </div>
+  <AutocompleteInput :list="this.list" />
 </template>
-
-<script>
-export default {
-  name: 'MainPage',
-  props: {
-    msg: String
-  }
-}
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
