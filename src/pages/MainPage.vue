@@ -1,6 +1,5 @@
 
 <script>
-import { cities } from "../assets/Mocks";
 import AutocompleteInput from '@/components/AutocompleteInput.vue';
 export default {
   components: {AutocompleteInput},
@@ -8,11 +7,6 @@ export default {
   props: {
     msg: String
   },
-  data() {
-    return {
-      list: cities
-    }
-  }
 }
 </script>
 
@@ -20,7 +14,7 @@ export default {
   <div class="hello">
     <h1>{{ msg }}</h1>
   </div>
-  <AutocompleteInput :list="this.list" />
+  <AutocompleteInput entity="city" />
 </template>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

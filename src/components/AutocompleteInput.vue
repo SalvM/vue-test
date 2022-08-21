@@ -4,31 +4,26 @@ import AutocompleteItem from "./AutocompleteItem.vue";
 export default {
     components: {AutocompleteItem},
     props: {
-        list: Array,
+        entity: String,
     },
     data() {
         return {
-            searchText: "",
-            searchResults: []
-        }
+            searchText: ''
+        };
+    },
+    computed: {
+        getData() {
+            return this.$store.getters?.[`${this.entity}/getData`]
+        },
     },
     methods: {
-        async autocomplete() {
-            this.searchResults = [];
-            for (let i = 0; i < this.list.length; i++) {
-                if (this.list[i].includes(this.searchText.toLowerCase())) {
-                    this.searchResults.push(this.list[i]);
-                }
-            }
-        },
+        query(searchText) {
+            this.$store.commit(`${this.entity}/changeQuery`, searchText);
+        }
     },
     watch: {
         searchText(newText) {
-            if (newText.length >= 3) {
-                this.autocomplete();
-            } else {
-                this.searchResults = [];
-            }
+            this.query(newText);
         },
     },
     mounted() {
@@ -48,8 +43,8 @@ export default {
             />
     </div>
     <div class="search-results-container">
-        <div class="list" v-if="searchResults.length">
-            <AutocompleteItem v-for="(item, index) in searchResults" :key="index" :word="item" />
+        <div class="list" v-if="getData.length">
+            <AutocompleteItem v-for="(item, index) in getData" :key="index" :word="item" />
         </div>
         <div v-else>
             <p>No results found</p>
