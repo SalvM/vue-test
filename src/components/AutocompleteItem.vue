@@ -1,14 +1,20 @@
 <script>
 export default {
     props: {
-        word: String
+        data: [String, Object]
     },
+    mounted() {
+        console.log(typeof this.data)
+    }
 }
 </script>
 
 <template>
     <div class="autocomplete-item">
-        <p>{{word}}</p>
+        <p v-if="typeof data === 'string'">{{data}}</p>
+        <p v-else-if="typeof data === 'object'">
+            {{ Object.values(data).join(', ') }}
+        </p>
     </div>
 </template>
 

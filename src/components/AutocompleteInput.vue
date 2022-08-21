@@ -51,7 +51,7 @@ export default {
     </div>
     <div class="search-results-container">
         <div class="list" v-if="getData.length">
-            <AutocompleteItem v-for="(item, index) in getData" :key="index" :word="item" />
+            <AutocompleteItem v-for="(item, index) in getData" :key="index" :data="item" />
         </div>
         <div v-else class="autocomplete-item">
             <p>No results found</p>
