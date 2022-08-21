@@ -13,7 +13,9 @@ export default {
     },
     getters: {
       getData (state) {
-          return state.query.length >= 3 ? state.list.filter(({title}) => title.includes(state.query?.toLowerCase())) : [];
+          return state.query.length >= 3 ? 
+            state.list.filter(({title}) => (title.toLowerCase().includes(state.query?.toLowerCase()))) 
+            : [];
       }
     }
 };

@@ -22,12 +22,19 @@ export default {
         }
     },
     watch: {
+        entity() {
+            this.searchText = '';
+        },
         searchText(newText) {
             this.query(newText);
         },
     },
     mounted() {
         this.$refs.searchInput.focus();
+    },
+    unmounted() {
+        this.searchText = '';
+        this.query('')
     }
 }
 </script>
@@ -46,12 +53,18 @@ export default {
         <div class="list" v-if="getData.length">
             <AutocompleteItem v-for="(item, index) in getData" :key="index" :word="item" />
         </div>
-        <div v-else>
+        <div v-else class="autocomplete-item">
             <p>No results found</p>
         </div>
     </div>
 </template>
 
 <style>
-
+    .search-container input {
+        margin: 8px;
+        padding: 8px;
+    }
+    .list {
+        overflow-y: auto;
+    }
 </style>

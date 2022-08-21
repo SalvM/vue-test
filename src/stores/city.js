@@ -13,7 +13,7 @@ export default {
     },
     getters: {
       getData (state) {
-          return state.query.length >= 3 ? state.list.filter(city => city.includes(state.query?.toLowerCase())) : [];
+          return state.query.length >= 3 ? state.list.filter(city => city.toLowerCase().includes(state.query?.toLowerCase())) : [];
       }
     }
   };

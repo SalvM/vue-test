@@ -14,8 +14,9 @@ export default {
 
 <style>
 .autocomplete-item {
-    padding: 8px 16px;
+    border-radius: 4px;
+    padding: 4px;
     margin: 8px;
-    border: 1px solid grey;
+    background-color: #f4f4f4;
 }
 </style>
