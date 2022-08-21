@@ -13,12 +13,12 @@ export default {
     },
     computed: {
         getData() {
-            return this.$store.getters?.[`${this.entity}/getData`]
+            return this.$store?.getters?.[`${this.entity}/getData`]
         },
     },
     methods: {
         query(searchText) {
-            this.$store.commit(`${this.entity}/changeQuery`, searchText);
+            this.$store?.commit(`${this.entity}/changeQuery`, searchText);
         }
     },
     watch: {
@@ -50,7 +50,7 @@ export default {
             />
     </div>
     <div class="search-results-container">
-        <div class="list" v-if="getData.length">
+        <div class="list" v-if="getData?.length">
             <AutocompleteItem v-for="(item, index) in getData" :key="index" :data="item" />
         </div>
         <div v-else class="autocomplete-item">

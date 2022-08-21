@@ -9,7 +9,7 @@ export default {
   },
   data() {
     return {
-      tabSelected: 'book'
+      tabSelected: 'city'
     }
   },
   methods: {
